@@ -7,7 +7,7 @@ const SearchBar = ({ handleSearch }) => {
       <input
         type="text"
         className="search-icons__icon"
-        placeholder="Search ..."
+        placeholder="Search by title ..."
         onChange={(e) => handleSearch(e.target.value)}
       />
     </div>

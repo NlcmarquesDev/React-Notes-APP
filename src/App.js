@@ -1,4 +1,5 @@
 import "./index.scss";
+import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Dashboard from "./components/Dashboard.jsx";
 import Login from "./routes/Login.jsx";
@@ -10,16 +11,27 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 
 function App() {
+  const [theme, setTheme] = useState(false);
+
+  function handleTheme() {
+    console.log("working");
+    if (theme) {
+      setTheme(false);
+    } else {
+      setTheme(true);
+    }
+  }
+  console.log(theme);
   return (
-    <>
-      <NavBarPrimary />
+    <div className={theme ? "dark-mode" : ""}>
+      <NavBarPrimary handlerTheme={handleTheme} />
       <Routes>
         <Route path={"/"} element={<Home />} />
         <Route path={"/login"} element={<Login />} />
         <Route path={"/register"} element={<Register />} />
         <Route path={"/dashboard"} element={<Dashboard />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

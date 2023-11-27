@@ -1,11 +1,13 @@
-export default function NavBarPrimary() {
+import { useState } from "react";
+
+export default function NavBarPrimary({ handlerTheme }) {
+  function handleTheme() {
+    handlerTheme();
+  }
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container-fluid">
-        <a className="navbar-brand logo" href="/">
-          NOTES
-        </a>
-
+        <h1>NOTES</h1>
         <button
           className="navbar-toggler"
           type="button"
@@ -19,9 +21,9 @@ export default function NavBarPrimary() {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav ms-auto">
-            <a className="btn btn-primary login" href="/login">
-              Login
-            </a>
+            <button className="save" onClick={handleTheme}>
+              Toogle Mode
+            </button>
           </div>
         </div>
       </div>

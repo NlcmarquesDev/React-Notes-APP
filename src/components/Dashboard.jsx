@@ -28,7 +28,9 @@ const Dashboard = () => {
       <div className="container">
         <Search handleSearch={setSearchText} />
         <NoteList
-          notes={notes}
+          notes={notes.filter((note) =>
+            note.title.toLowerCase().includes(searchText)
+          )}
           handleAddNote={addNote}
           handleDeleteNote={deleteNote}
         />
